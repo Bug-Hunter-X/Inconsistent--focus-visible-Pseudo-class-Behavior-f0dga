@@ -1,0 +1,20 @@
+To address the issue, we need to ensure there's sufficient visual difference between the focus styles and default styles. One solution is to make the styling more distinct and impactful:
+
+```css
+.my-element {
+  /* Default style */
+  border: 1px solid transparent; /* Ensure some border is present */
+}
+
+.my-element:focus {
+  outline: 2px solid blue;
+  box-shadow: 0 0 5px rgba(0, 0, 255, 0.5); /* Add a more visible effect */
+}
+
+.my-element:focus-visible {
+  outline: 4px solid red;
+  box-shadow: 0 0 10px rgba(255, 0, 0, 0.7); /* Make it significantly more visible */
+}
+```
+
+By adding a box-shadow in the `:focus` and `:focus-visible` states we amplify the visual difference making it more likely that the `:focus-visible` styling will be triggered consistently.  Consider adding more substantial changes to further increase the visual distinction between focused and unfocused states to ensure more reliable behaviour.
