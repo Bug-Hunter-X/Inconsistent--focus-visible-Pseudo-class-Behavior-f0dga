@@ -1,0 +1,15 @@
+The following CSS code snippet demonstrates an uncommon error related to the `:focus-visible` pseudo-class: 
+
+```css
+.my-element:focus {
+  outline: 2px solid blue;
+}
+
+.my-element:focus-visible {
+  outline: 4px solid red;
+}
+```
+
+This code intends to add a blue outline on focus and a more prominent red outline when focus is visible (meaning the element is not focused programmatically, such as via JavaScript). However, in some browsers or situations the red outline may never appear, or may not appear in the expected situations.
+
+This is due to an implementation detail of how `:focus-visible` is handled. If an element's focus styling isn't sufficiently visually distinct from the unfocused state (as the red outline is in the code above), then the `:focus-visible` pseudo-class might not be triggered.  In this scenario, both `:focus` and `:focus-visible` will share the same style, and the blue outline will be used consistently. This behavior can be inconsistent across browsers and also depends on the operating system and accessibility settings of the user. 
